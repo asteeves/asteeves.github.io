@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>No time like the present</title>
+  <title>No time like the present &mdash; steeveslab-blog</title>
   <meta name="author" content="asteeves">
 
 
@@ -1715,16 +1715,15 @@ jQuery(document).ready(function($) {
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="./favicon.png" rel="icon">
+
+    <link href="./favicon.png" rel="icon">
+
   <link href="./theme/css/main.css" media="screen, projection"
         rel="stylesheet" type="text/css">
-  <script src="./theme/js/modernizr-2.0.js"></script>
-  <script src="./theme/js/ender.js"></script>
-  <script src="./theme/js/octopress.js" type="text/javascript"></script>
 
-  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
         rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
         rel="stylesheet" type="text/css">
 </head>
 
@@ -1748,7 +1747,8 @@ jQuery(document).ready(function($) {
   <article class="hentry" role="article">
 <header>
       <h1 class="entry-title">No time like the present</h1>
-      <p class="meta"><time datetime="2015-01-07T19:30:00" pubdate>Wed 07 January 2015</time></p>
+    <p class="meta">
+<time datetime="2015-01-07T19:30:00" pubdate>Jan 07, 2015</time>    </p>
 </header>
 
   <div class="entry-content"><p>I have heard that it is possible to assemble a blog using the IPython notebook.
@@ -1784,17 +1784,28 @@ Hello, friends.
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How do you like my &quot;quotation marks?&quot;</p>
+</div>
+</div>
 </div></p></div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
-    Posted by <span class="fn">asteeves</span>
+    Posted by <span class="fn">
+        asteeves
+    </span>
   </span>
-<time datetime="2015-01-07T19:30:00" pubdate>Wed 07 January 2015</time>  <span class="categories">
-    <a class="category" href="./tag/python.html">python</a>
-    <a class="category" href="./tag/notebook.html">notebook</a>
-    <a class="category" href="./tag/blogging.html">blogging</a>
+<time datetime="2015-01-07T19:30:00" pubdate>Jan 07, 2015</time>  <span class="categories">
+    <a class='category' href='./category/ipython-notebook.html'>IPython notebook</a>
   </span>
+  <span class="categories">
+    <a class="category" href="./tag/python.html">python</a>,    <a class="category" href="./tag/notebook.html">notebook</a>,    <a class="category" href="./tag/blogging.html">blogging</a>  </span>
 </p><div class="sharing">
 </div>    </footer>
   </article>
@@ -1827,15 +1838,52 @@ Hello, friends.
         <h1>Social</h1>
         <ul>
             <li><a href="https://twitter.com/SteevesLab" target="_blank">Twitter</a></li>
-            <li><a href="#" target="_blank">Another social link</a></li>
         </ul>
     </section>
 
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      var widgetId = '553033582500122624',
+          domId = 'tweets',
+          count = 5,
+          hyperlinkUrlsPlus = true,
+          showUserPhoto = false,
+          timeOfTweet = true,
+          dateFormat = 'default',
+          showRetweets = false,
+          customOutputFn = null,
+          showReplyRetweetButtons = false;
+
+      twitterFetcher.fetch(
+        widgetId,
+        domId,
+        count,
+        hyperlinkUrlsPlus,
+        showUserPhoto,
+        timeOfTweet,
+        dateFormat,
+        showRetweets,
+        customOutputFn,
+        showReplyRetweetButtons
+      );
+    });
+  </script>
+  <script src="/theme/js/twitter.js" type="text/javascript"> </script>
+    <p>Follow <a href="http://twitter.com/SteevesLab">@SteevesLab</a></p>
+</section>
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - asteeves -
+    Copyright &copy;  2015  asteeves &mdash;
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
+  <script src="./theme/js/modernizr-2.0.js"></script>
+  <script src="./theme/js/ender.js"></script>
+  <script src="./theme/js/octopress.js" type="text/javascript"></script>
 </body>
 </html>
