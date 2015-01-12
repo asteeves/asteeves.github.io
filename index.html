@@ -1765,7 +1765,35 @@ In&nbsp;[1]:
 <div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
 <span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span>
 <span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span>
-<span class="kn">from</span> <span class="nn">rdkit.Chem ...</span></pre></div></div></div></div></div></p></div>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw.MolDrawing</span> <span class="kn">import</span> <span class="n">MolDrawing</span><span class="p">,</span> <span class="n">DrawingOptions</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">DrawingOptions</span><span class="o">.</span><span class="n">bondLineWidth</span><span class="o">=</span><span class="mf">1.8</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In cheminformatics, we are rarely interested in performing calculations on a single molecule at a time. Rather, libraries of ...</p></div></div></div></p></div>
   <footer>
     <a rel="full-article" href="./blog/2015/01/12/lists-in-rdkit/">Read On &crarr;</a>
   </footer>
@@ -1791,7 +1819,67 @@ In&nbsp;[1]:
 <div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
 <span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span>
 <span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span>
-<span class="kn">from</span> <span class="nn">rdkit.Chem ...</span></pre></div></div></div></div></div></p></div>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw.MolDrawing</span> <span class="kn">import</span> <span class="n">MolDrawing</span><span class="p">,</span> <span class="n">DrawingOptions</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">cPickle</span> <span class="kn">as</span> <span class="nn">pickle</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[3]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">PyMol</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[4]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ibuH</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">&#39;ibuH.pkl&#39;</span><span class="p">,</span><span class="s">&#39;rb&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[5]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ibuH ...</span></pre></div></div></div></div></div></p></div>
   <footer>
     <a rel="full-article" href="./blog/2015/01/12/conformations-in-rdkit/">Read On &crarr;</a>
   </footer>
@@ -1808,7 +1896,17 @@ In&nbsp;[1]:
   <div class="entry-content"><p><img src="/images/ibuprofen_mmff_pymol.png" class="png"></p>
 <p>In my <a href="http://asteeves.github.io/blog/2015/01/12/molecules-in-rdkit/">previous post</a>,
 I built a molecule in RDKit and saved it for later use. The construction process 
-may ...</p></div>
+may not have created a molecule that is suitable for our purposes. Let&rsquo;s examine
+the geometry of the molceule and visualize it using the PyMOL xmlrpc server.</p>
+<p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from ...</span></pre></div></div></div></div></div></p></div>
   <footer>
     <a rel="full-article" href="./blog/2015/01/12/optimizing-in-rdkit/">Read On &crarr;</a>
   </footer>
@@ -1824,7 +1922,8 @@ may ...</p></div>
 
   <div class="entry-content"><p><img src="/images/ibuprofen_2D_lines.png" class="png"></p>
 <p>One of my primary motivations for setting up this blog was to have a centralized place for sharing how 
-I ...</p></div>
+I am using the combination of the RDKit and the IPython notebook in teaching and research. 
+There are many great resources for learning how to use the RDKit python bindings, including ...</p></div>
   <footer>
     <a rel="full-article" href="./blog/2015/01/12/molecules-in-rdkit/">Read On &crarr;</a>
   </footer>
@@ -1839,7 +1938,45 @@ I ...</p></div>
 </header>
 
   <div class="entry-content"><p>I have heard that it is possible to assemble a blog using the IPython notebook.
-I think I might give ...</p></div>
+I think I might give that a try. </p>
+<p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="k">print</span> <span class="s">&#39;Hello, friends.&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Hello, friends.
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I hardcoded a couple of hacks to get “smart quotes” from Markdown both inside and outside of the notebook cells ...</p></div></div></div></p></div>
   <footer>
     <a rel="full-article" href="./blog/2015/01/07/like-the-present/">Read On &crarr;</a>
   </footer>
