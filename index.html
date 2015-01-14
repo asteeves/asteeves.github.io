@@ -1747,6 +1747,73 @@ jQuery(document).ready(function($) {
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="./blog/2015/01/14/editing-in-rdkit/">Editing, merging, and replacing molecules in RDKit</a>
+      </h1>
+    <p class="meta">
+<time datetime="2015-01-14T12:00:00" pubdate>Jan 14, 2015</time>    </p>
+</header>
+
+  <div class="entry-content"><p><img src="/images/molecule_edit.png" class="png"></p>
+<p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[31]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">MolDrawing</span><span class="p">,</span> <span class="n">DrawingOptions</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[32]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">DrawingOptions</span><span class="o">.</span><span class="n">bondLineWidth</span><span class="o">=</span><span class="mf">1.8</span>
+<span class="n">DrawingOptions</span><span class="o">.</span><span class="n">atomLabelFontSize</span><span class="o">=</span><span class="mi">14</span>
+<span class="n">DrawingOptions</span><span class="o">.</span><span class="n">includeAtomNumbers</span><span class="o">=</span><span class="bp">False</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Create new molecule from a SMILES string:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[33]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">start_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s">&#39;c1cc(CCCO ...</span></pre></div></div></div></div></div></p></div>
+  <footer>
+    <a rel="full-article" href="./blog/2015/01/14/editing-in-rdkit/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="./blog/2015/01/13/measuring-in-rdkit/">Measurement and plotting of coordinates in RDKit</a>
       </h1>
     <p class="meta">
@@ -1851,6 +1918,7 @@ In&nbsp;[2]:
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="n">DrawingOptions</span><span class="o">.</span><span class="n">bondLineWidth</span><span class="o">=</span><span class="mf">1.8</span>
+<span class="n">DrawingOptions</span><span class="o">.</span><span class="n">atomLabelFontSize</span><span class="o">=</span><span class="mi">14</span>
 </pre></div>
 
 </div>
@@ -1863,7 +1931,7 @@ In&nbsp;[2]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In cheminformatics, we are rarely interested in performing calculations on a single molecule at a time. Rather, libraries of ...</p></div></div></div></p></div>
+<p>In cheminformatics, we are rarely interested in performing calculations on a single molecule at a time ...</p></div></div></div></p></div>
   <footer>
     <a rel="full-article" href="./blog/2015/01/12/lists-in-rdkit/">Read On &crarr;</a>
   </footer>
@@ -2060,6 +2128,9 @@ Hello, friends.
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="./blog/2015/01/14/editing-in-rdkit/">Editing, merging, and replacing molecules in RDKit</a>
+      </li>
+      <li class="post">
           <a href="./blog/2015/01/13/measuring-in-rdkit/">Measurement and plotting of coordinates in RDKit</a>
       </li>
       <li class="post">
@@ -2070,9 +2141,6 @@ Hello, friends.
       </li>
       <li class="post">
           <a href="./blog/2015/01/12/optimizing-in-rdkit/">Force-field optimization of molecules in RDKit</a>
-      </li>
-      <li class="post">
-          <a href="./blog/2015/01/12/molecules-in-rdkit/">Molecules in the IPython notebook with RDKit</a>
       </li>
     </ul>
   </section>
@@ -2087,7 +2155,7 @@ Hello, friends.
 
   <section>
   <h1>Tags</h1>
-    <a href="./tag/list-comprehension.html">list comprehension</a>,    <a href="./tag/rdkit.html">rdkit</a>,    <a href="./tag/dihedral.html">dihedral</a>,    <a href="./tag/python.html">python</a>,    <a href="./tag/mmff.html">MMFF</a>,    <a href="./tag/optimization.html">optimization</a>,    <a href="./tag/lists.html">lists</a>,    <a href="./tag/blogging.html">blogging</a>,    <a href="./tag/notebook.html">notebook</a>,    <a href="./tag/matplotlib.html">matplotlib</a>,    <a href="./tag/pymol.html">PyMOL</a>,    <a href="./tag/conformations.html">conformations</a>,    <a href="./tag/alignment.html">alignment</a>  </section>
+    <a href="./tag/list-comprehension.html">list comprehension</a>,    <a href="./tag/rdkit.html">rdkit</a>,    <a href="./tag/substructure.html">substructure</a>,    <a href="./tag/python.html">python</a>,    <a href="./tag/mmff.html">MMFF</a>,    <a href="./tag/optimization.html">optimization</a>,    <a href="./tag/lists.html">lists</a>,    <a href="./tag/blogging.html">blogging</a>,    <a href="./tag/merging.html">merging</a>,    <a href="./tag/notebook.html">notebook</a>,    <a href="./tag/matplotlib.html">matplotlib</a>,    <a href="./tag/combining.html">combining</a>,    <a href="./tag/pymol.html">PyMOL</a>,    <a href="./tag/editing.html">editing</a>,    <a href="./tag/conformations.html">conformations</a>,    <a href="./tag/alignment.html">alignment</a>,    <a href="./tag/dihedral.html">dihedral</a>  </section>
 
 
     <section>
