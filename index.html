@@ -1747,6 +1747,300 @@ jQuery(document).ready(function($) {
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="./blog/2015/01/14/editing-in-rdkit/">Editing, merging, and replacing molecules in RDKit</a>
+      </h1>
+    <p class="meta">
+<time datetime="2015-01-14T12:00:00" pubdate>Jan 14, 2015</time>    </p>
+</header>
+
+  <div class="entry-content"><p><img src="/images/molecule_edit.png" class="png"></p>
+<p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">MolDrawing</span><span class="p">,</span> <span class="n">DrawingOptions</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">DrawingOptions</span><span class="o">.</span><span class="n">bondLineWidth</span><span class="o">=</span><span class="mf">1.8</span>
+<span class="n">DrawingOptions</span><span class="o">.</span><span class="n">atomLabelFontSize</span><span class="o">=</span><span class="mi">14</span>
+<span class="n">DrawingOptions</span><span class="o">.</span><span class="n">includeAtomNumbers</span><span class="o">=</span><span class="bp">False</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Create new molecule from a SMILES string:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">start_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s">&#39;c1cc(CCCO ...</span></pre></div></div></div></div></div></p></div>
+  <footer>
+    <a rel="full-article" href="./blog/2015/01/14/editing-in-rdkit/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="./blog/2015/01/13/measuring-in-rdkit/">Measurement and plotting of coordinates in RDKit</a>
+      </h1>
+    <p class="meta">
+<time datetime="2015-01-13T13:00:00" pubdate>Jan 13, 2015</time>    </p>
+</header>
+
+  <div class="entry-content"><p><img src="/images/ibuprofen_measure.png" class="png"></p>
+<p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">PyMol</span>
+<span class="kn">import</span> <span class="nn">cPickle</span> <span class="kn">as</span> <span class="nn">pickle</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ibuH</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">&#39;ibuH_confs.pkl&#39;</span><span class="p">,</span><span class="s">&#39;rb&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">confs</span> <span class="o">=</span> <span class="n">ibuH</span><span class="o">.</span><span class="n">GetConformers</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We might be interested in the distribution of a particular ...</p></div></div></div></p></div>
+  <footer>
+    <a rel="full-article" href="./blog/2015/01/13/measuring-in-rdkit/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="./blog/2015/01/12/lists-in-rdkit/">Lists of molecules in RDKit</a>
+      </h1>
+    <p class="meta">
+<time datetime="2015-01-12T16:00:00" pubdate>Jan 12, 2015</time>    </p>
+</header>
+
+  <div class="entry-content"><p><img src="/images/molecule_list_image.png" class="png"></p>
+<p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw.MolDrawing</span> <span class="kn">import</span> <span class="n">MolDrawing</span><span class="p">,</span> <span class="n">DrawingOptions</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">DrawingOptions</span><span class="o">.</span><span class="n">bondLineWidth</span><span class="o">=</span><span class="mf">1.8</span>
+<span class="n">DrawingOptions</span><span class="o">.</span><span class="n">atomLabelFontSize</span><span class="o">=</span><span class="mi">14</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In cheminformatics, we are rarely interested in performing calculations on a single molecule at a time ...</p></div></div></div></p></div>
+  <footer>
+    <a rel="full-article" href="./blog/2015/01/12/lists-in-rdkit/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="./blog/2015/01/12/conformations-in-rdkit/">Multiple conformations of a molecule in RDKit</a>
+      </h1>
+    <p class="meta">
+<time datetime="2015-01-12T13:00:00" pubdate>Jan 12, 2015</time>    </p>
+</header>
+
+  <div class="entry-content"><p><img src="/images/ibuprofen_multiconf.png" class="png"></p>
+<p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span>
+<span class="kn">from</span> <span class="nn">rdkit.Chem.Draw.MolDrawing</span> <span class="kn">import</span> <span class="n">MolDrawing</span><span class="p">,</span> <span class="n">DrawingOptions</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">import</span> <span class="nn">cPickle</span> <span class="kn">as</span> <span class="nn">pickle</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">PyMol</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ibuH</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">&#39;ibuH.pkl&#39;</span><span class="p">,</span><span class="s">&#39;rb&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="n">ibuH ...</span></pre></div></div></div></div></div></p></div>
+  <footer>
+    <a rel="full-article" href="./blog/2015/01/12/conformations-in-rdkit/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="./blog/2015/01/12/optimizing-in-rdkit/">Force-field optimization of molecules in RDKit</a>
+      </h1>
+    <p class="meta">
+<time datetime="2015-01-12T12:00:00" pubdate>Jan 12, 2015</time>    </p>
+</header>
+
+  <div class="entry-content"><p><img src="/images/ibuprofen_mmff_pymol.png" class="png"></p>
+<p>In my <a href="http://asteeves.github.io/blog/2015/01/12/molecules-in-rdkit/">previous post</a>,
+I built a molecule in RDKit and saved it for later use. The construction process 
+may not have created a molecule that is suitable for our purposes. Let&rsquo;s examine
+the geometry of the molceule and visualize it using the PyMOL xmlrpc server.</p>
+<p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from ...</span></pre></div></div></div></div></div></p></div>
+  <footer>
+    <a rel="full-article" href="./blog/2015/01/12/optimizing-in-rdkit/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="./blog/2015/01/12/molecules-in-rdkit/">Molecules in the IPython notebook with RDKit</a>
+      </h1>
+    <p class="meta">
+<time datetime="2015-01-12T11:00:00" pubdate>Jan 12, 2015</time>    </p>
+</header>
+
+  <div class="entry-content"><p><img src="/images/ibuprofen_2D_lines.png" class="png"></p>
+<p>One of my primary motivations for setting up this blog was to have a centralized place for sharing how 
+I am using the combination of the RDKit and the IPython notebook in teaching and research. 
+There are many great resources for learning how to use the RDKit python bindings, including ...</p></div>
+  <footer>
+    <a rel="full-article" href="./blog/2015/01/12/molecules-in-rdkit/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="./blog/2015/01/07/like-the-present/">No time like the present</a>
       </h1>
     <p class="meta">
@@ -1758,9 +2052,7 @@ I think I might give that a try. </p>
 <h1>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[1]:
-</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="k">print</span> <span class="s">&#39;Hello, friends.&#39;</span>
@@ -1792,7 +2084,7 @@ Hello, friends.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I hardcoded a couple of hacks to get “smart quotes” from Markdown both inside and outside of the notebook cells ...</p></div></div></div></h1></div>
+<p>I hardcoded a couple of hacks to get &quot;smart quotes&quot; from Markdown both inside and outside of the notebook cells ...</p></div></div></div></h1></div>
   <footer>
     <a rel="full-article" href="./blog/2015/01/07/like-the-present/">Read On &crarr;</a>
   </footer>
@@ -1806,7 +2098,19 @@ Hello, friends.
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="./blog/2015/01/07/like-the-present/">No time like the present</a>
+          <a href="./blog/2015/01/14/editing-in-rdkit/">Editing, merging, and replacing molecules in RDKit</a>
+      </li>
+      <li class="post">
+          <a href="./blog/2015/01/13/measuring-in-rdkit/">Measurement and plotting of coordinates in RDKit</a>
+      </li>
+      <li class="post">
+          <a href="./blog/2015/01/12/lists-in-rdkit/">Lists of molecules in RDKit</a>
+      </li>
+      <li class="post">
+          <a href="./blog/2015/01/12/conformations-in-rdkit/">Multiple conformations of a molecule in RDKit</a>
+      </li>
+      <li class="post">
+          <a href="./blog/2015/01/12/optimizing-in-rdkit/">Force-field optimization of molecules in RDKit</a>
       </li>
     </ul>
   </section>
@@ -1821,7 +2125,7 @@ Hello, friends.
 
   <section>
   <h1>Tags</h1>
-    <a href="./tag/python.html">python</a>,    <a href="./tag/notebook.html">notebook</a>,    <a href="./tag/blogging.html">blogging</a>  </section>
+    <a href="./tag/list-comprehension.html">list comprehension</a>,    <a href="./tag/rdkit.html">rdkit</a>,    <a href="./tag/substructure.html">substructure</a>,    <a href="./tag/python.html">python</a>,    <a href="./tag/mmff.html">MMFF</a>,    <a href="./tag/optimization.html">optimization</a>,    <a href="./tag/lists.html">lists</a>,    <a href="./tag/blogging.html">blogging</a>,    <a href="./tag/merging.html">merging</a>,    <a href="./tag/notebook.html">notebook</a>,    <a href="./tag/matplotlib.html">matplotlib</a>,    <a href="./tag/combining.html">combining</a>,    <a href="./tag/pymol.html">PyMOL</a>,    <a href="./tag/editing.html">editing</a>,    <a href="./tag/conformations.html">conformations</a>,    <a href="./tag/alignment.html">alignment</a>,    <a href="./tag/dihedral.html">dihedral</a>  </section>
 
 
     <section>
